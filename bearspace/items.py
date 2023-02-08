@@ -6,14 +6,14 @@ from itemloaders.processors import MapCompose, TakeFirst
 def extract_media(raw_str):
     media_words = ['board', 'vinyl', 'acrylic', 'wood', 'veneers', 'card', 'spraypaint', 'sculpture', 'charcoal', 'resin', 'pigment', 'leaf', 'concrete',
                    'canvas', 'crystal', 'iron', 'inkjet', 'laser', 'paper', 'pencil', 'cement', 'gold', 'watercolour', 'pigments', 'pins', 'ground', 'media',
-                   'aluminium', 'oil', 'ink', 'digital', 'copper', 'procelain', 'wire', 'mixed', 'viynl', 'print', 'mdf', 'beech', 'laser', 'steel', 'enamel']
+                   'aluminium', 'oil', 'ink', 'digital', 'copper', 'procelain', 'wire', 'mixed', 'print', 'mdf', 'beech', 'laser', 'steel', 'enamel']
 
     raw_str_lower = raw_str.lower()
     splitted_raw_str = re.split(',', raw_str_lower)
     matching_strs = [string for string in splitted_raw_str
                      if any(word in string for word in media_words) and len(string.split()) < 15]
     if matching_strs:
-        out_str = ", ".join(matching_strs).strip()
+        out_str = ', '.join(matching_strs).strip()
         return out_str
 
 # Extracts height if text matches regex pattern
